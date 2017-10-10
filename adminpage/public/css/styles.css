@@ -1,0 +1,55 @@
+body{
+	font-family: arial,sans-serif;
+}
+
+.main_container
+{
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	font-family: arial,sans-serif;
+	background: white;
+}
+
+.myHeader{
+    width: 100%;
+    background: azure;
+    height: 100px;
+}
+
+.myBody{
+	width: 100%;
+	height: 100%;
+}
+
+.easyui-tabs{
+	width:100%;
+	height:100%;
+}
+
+.row{
+	margin: 0;
+}
+
+.mySelect{
+	width: 100%
+}
+
+.saveButtonDiv{
+	float: right;
+    margin-right: 15px;
+}
+
+#firstChannelPlannedTable td:nth-child(6), #firstChannelGeneralTable td:nth-child(5){
+	text-align: center;
+}
+
+.tableTitle{
+	font-size: xx-large;
+}
+
+.textinput{
+	width: 100%;
+}

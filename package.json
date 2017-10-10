@@ -1,0 +1,52 @@
+{
+  "name": "digital-advert",
+  "version": "1.0.0",
+  "description": "Digital Advertisement Admin Page",
+  "repository": "https://github.com/kallolghose/digitaladvert_googlecloud.git",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Kallol Ghose",
+  "contributors": [
+    {
+      "name": "Pankaj Shinde",
+      "email": "p10shinde@gmail.com"
+    }
+  ],
+  "cloud-repo-tools": {
+    "requiresKeyFile": true,
+    "requiresProjectId": true,
+    "test": {
+      "app": {
+        "args": [
+          "app.js"
+        ],
+        "msg": "Digital Advertisement Started"
+      }
+    }
+  },
+  "license": "Apache-2.0",
+  "semistandard": {
+    "globals": [
+      "after",
+      "afterEach",
+      "before",
+      "beforeEach",
+      "describe",
+      "it"
+    ]
+  },
+  "dependencies": {
+    "express": "~4.15.2"
+  },
+  "devDependencies": {
+    "@google-cloud/nodejs-repo-tools": "1.4.16",
+    "ava": "~0.21.0",
+    "supertest": "~3.0.0",
+    "tap-dot": "~1.0.5"
+  },
+  "engines": {
+    "node": ">=4.3.2"
+  }
+}

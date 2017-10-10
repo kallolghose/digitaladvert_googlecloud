@@ -183,7 +183,7 @@ function getRowColFromTD(tdTarget,callback){
 
 window.onload = function(){
 	localDB = new PouchDB("digitaladvert_local");
-	remoteDB = new PouchDB("http://35.201.239.214:5984/digitaladvert"); //Connected to google cloud
+	remoteDB = new PouchDB("https://35.201.239.214:6984/digitaladvert"); //Connected to google cloud
 	// remoteDB = new PouchDB("http://10.13.67.174:5984/digitaladvert"); //Connected to google cloud
 
 	var syncHandler = PouchDB.sync(localDB,remoteDB,{

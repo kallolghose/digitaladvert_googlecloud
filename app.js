@@ -11,9 +11,9 @@ app.get('/', function(req, res) {
 
 // [START server]
 // Start the server
-const server = app.listen(process.env.PORT || 8082, () => {
-    const port = server.address().port;
-    console.log("App listening on port ${port}");
+server = app.listen(process.env.PORT || 8082, () => {
+    port = server.address().port;
+    console.log("App listening on port " + port);
 });
 // [END server]
 

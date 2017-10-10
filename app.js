@@ -9,5 +9,12 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/adminpage/index.html'));
 });
 
-app.listen(3000);
-console.log("Running at Port 3000");
+// [START server]
+// Start the server
+const server = app.listen(process.env.PORT || 8082, () => {
+    const port = server.address().port;
+    console.log("App listening on port ${port}");
+});
+// [END server]
+
+module.exports = app;

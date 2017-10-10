@@ -5,7 +5,8 @@
   "repository": "https://github.com/kallolghose/digitaladvert_googlecloud.git",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "e2e": "rm -rf node_modules/ &&  samples test build --deploy --timeout 20m --builderProject $GCLOUD_PROJECT"
   },
   "author": "Kallol Ghose",
   "contributors": [
@@ -38,7 +39,8 @@
     ]
   },
   "dependencies": {
-    "express": "~4.15.2"
+    "express": "~4.15.2",
+	"path": "~0.12.7"
   },
   "devDependencies": {
     "@google-cloud/nodejs-repo-tools": "1.4.16",

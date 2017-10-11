@@ -182,7 +182,7 @@ callFirstChannelGeneral = function(){
 	}
 
 	getDataFromLocalDB(function(dataSet){
-		getFileList(function(fileList){
+		getFileList('first',function(fileList){
 			contentCategories = fileList;
 			digitaladvert.initializeFirstChannelGeneralTable(dataSet);
 		})

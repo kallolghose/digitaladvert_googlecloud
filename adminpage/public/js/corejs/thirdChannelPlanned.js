@@ -271,7 +271,7 @@ callThirdChannelPlanned = function(){
 	}
 
 	getDataFromLocalDB(function(dataSet){
-		getFileList(function(fileList){
+		getFileList('third',function(fileList){
 			contentCategories = fileList;
 			digitaladvert.initializeThirdChannelPlannedTable(dataSet);
 		})

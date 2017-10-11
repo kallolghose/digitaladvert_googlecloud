@@ -182,7 +182,7 @@ callFourthChannelGeneral = function(){
 	}
 
 	getDataFromLocalDB(function(dataSet){
-		getFileList(function(fileList){
+		getFileList('fourth',function(fileList){
 			contentCategories = fileList;
 			digitaladvert.initializeFourthChannelGeneralTable(dataSet);
 		})

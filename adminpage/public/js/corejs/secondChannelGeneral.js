@@ -182,7 +182,7 @@ callSecondChannelGeneral = function(){
 	}
 
 	getDataFromLocalDB(function(dataSet){
-		getFileList(function(fileList){
+		getFileList('second',function(fileList){
 			contentCategories = fileList;
 			digitaladvert.initializeSecondChannelGeneralTable(dataSet);
 		})

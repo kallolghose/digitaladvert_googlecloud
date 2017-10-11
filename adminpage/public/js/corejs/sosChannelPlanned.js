@@ -272,7 +272,7 @@ callSosChannelPlanned = function(){
 	}
 
 	getDataFromLocalDB(function(dataSet){
-		getFileList(function(fileList){
+		getFileList('sos',function(fileList){
 			contentCategories = fileList;
 			digitaladvert.initializeSosChannelPlannedTable(dataSet);
 		})

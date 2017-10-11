@@ -38,10 +38,13 @@ var dtJQFourthChannelGeneral;
 var dtAPISosChannelPlanned;
 var dtJQSosChannelPlanned;
 
+var dropboxFileList = undefined;
+
 // var contentCategories = ['check_img1','check_img2','check_img3'];
 var localDB; 
 var remoteDB;
-var dbx = new Dropbox({ accessToken: 'D5T_eB2HNLQAAAAAAAABmCXPGhseKoD6V3kxnMs_JdeGZ_VHzkTHaWyvjUPKRd1X' });
+// var dbx = new Dropbox({ accessToken: 'D5T_eB2HNLQAAAAAAAABmCXPGhseKoD6V3kxnMs_JdeGZ_VHzkTHaWyvjUPKRd1X' });
+var dbx = new Dropbox({ accessToken: 'aiI0y8s8I-AAAAAAAAAB0jp8C21Q9pOBXDJ8n0H2bqtWCZ6G78CdbOlkTr_UbJLu' });
 var dataModelChannel1Planned = { 	data : "",
 							datatype : "",
 							deviceid : "ID",
@@ -59,16 +62,22 @@ var dataModelChannel1General = { 	data : "",
 							type : "general",
 						}						
 
-function getFileList(callback){
+function getFileList(foldername,callback){
 	// dbx.filesListFolder({path: '/digitalAdvert'})
-	// .then(function(response) {
-	// 	callback(_.pluck(response.entries,'name'));
-	// 	console.log(response);
-	// })
-	// .catch(function(error) {
-	// 	console.log(error);
-	// });
-	callback(["image1.jpeg", "image3.jpeg", "image2.jpeg", "image4.jpeg", "image5.jpeg", "image6.jpeg"]);
+	dbx.filesListFolder({path: '/DigiAdvert/'+foldername})
+	.then(function(response) {
+		dropboxFileList = _.pluck(response.entries,'name')
+		if(!dropboxFileList && dropboxFileList.length == 0){
+			console.log(response);
+			callback(_.pluck(response.entries,'name'));
+		}
+		else
+			callback(dropboxFileList);
+	})
+	.catch(function(error) {
+		console.log(error);
+	});
+	// callback(["image1.jpeg", "image3.jpeg", "image2.jpeg", "image4.jpeg", "image5.jpeg", "image6.jpeg"]);
 }
 
 function getDataFromLocalDB(callback){
@@ -215,19 +224,57 @@ window.onload = function(){
 
    // localDB.sync('digitaladvert_local', 'http://35.201.239.214:5984/digitaladvert');
 
+   	// setTimeout(function(){
+		callFirstChannelPlanned();
+   	// },100)
+   	// setTimeout(function(){
+		callFirstChannelGeneral();
+   	// },500)
 
-	callFirstChannelPlanned();
-	callFirstChannelGeneral();
+  //  	setTimeout(function(){
+		// callSecondChannelGeneral();
+  //  	},900)
+  //  	setTimeout(function(){
+		// callSecondChannelPlanned();
+  //  	},1300)
 
-	callSecondChannelGeneral();
-	callSecondChannelPlanned();
+  //  	setTimeout(function(){
+		// callThirdChannelPlanned();
+  //  	},1700)
+  //  	setTimeout(function(){
+		// callThirdChannelGeneral();
+  //  	},2100)
 
-	callThirdChannelPlanned();
-	callThirdChannelGeneral();
-
-	callFourthChannelPlanned();
-	callFourthChannelGeneral();
+  //  	setTimeout(function(){
+		// callFourthChannelPlanned();
+  //  	},2500)
+  //  	setTimeout(function(){
+		// callFourthChannelGeneral();
+  //  	},2900)
 	
-	callSosChannelPlanned();
+  //  	setTimeout(function(){
+		// callSosChannelPlanned();
+  //  	},3300)
+
+   	$("#myChannelsTab").tabs({
+   		onSelect : function(title,index){
+   			if(index == 0){
+   				callFirstChannelPlanned();
+				callFirstChannelGeneral();
+   			}else if(index == 1){
+   				callSecondChannelGeneral();
+				callSecondChannelPlanned();
+   			}else if(index == 2){
+   				callThirdChannelPlanned();
+				callThirdChannelGeneral();
+   			}else if(index == 3){
+   				callFourthChannelPlanned();
+				callFourthChannelGeneral();
+   			}else if(index == 4){
+				callSosChannelPlanned();
+   			}
+   			
+   		}
+   	})
 
 }

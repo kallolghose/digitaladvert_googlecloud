@@ -270,7 +270,7 @@ callFourthChannelPlanned = function(){
 	}
 
 	getDataFromLocalDB(function(dataSet){
-		getFileList(function(fileList){
+		getFileList('fourth',function(fileList){
 			contentCategories = fileList;
 			digitaladvert.initializeFourthChannelPlannedTable(dataSet);
 		})
